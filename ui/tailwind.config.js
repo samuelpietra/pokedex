@@ -49,6 +49,10 @@ export const theme = {
       'pk-primary': {
         DEFAULT: 'hsl(var(--pk-primary))',
       },
+      'pk-not-found': {
+        DEFAULT: 'hsl(var(--pk-not-found))',
+        foreground: 'hsl(var(--pk-not-found-foreground))',
+      },
       'pk-type-bug': {
         DEFAULT: 'hsl(var(--pk-type-bug))',
       },

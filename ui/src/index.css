@@ -37,6 +37,8 @@
 
     /* Indetity */
     --pk-primary: 350, 91%, 45%;
+    --pk-not-found: 160, 38%, 77%;
+    --pk-not-found-foreground: 172, 100%, 23%;
     /* Pokémon Type */
     --pk-type-bug: 66, 68%, 43%;
     --pk-type-dark: 16, 21%, 38%;
