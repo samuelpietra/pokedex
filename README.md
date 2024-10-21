@@ -28,6 +28,7 @@
 - [Getting started](#getting-started)
 - [Responsiveness](#responsiveness)
 - [Current status](#current-status)
+- [Design reference](#design-reference)
 - [Contributors](#contributors)
 
 # Tools versions
@@ -99,6 +100,10 @@ By this way, we could easily apply breaking points for many different screen res
 - [x] Ability to mark pokémons as Seen or Captured
 - [ ] Better classes distribution
 - [ ] Enhanced unit tests and coverage
+
+# Design reference
+
+We are proud to count on the **Figma Community** to inspire and make our project look amazing! You can access the reference project made by [Ricardo Schiniegoski](https://www.figma.com/@ricardohs) by clicking [here](https://www.figma.com/community/file/979132880663340794/pokedex).
 
 # Contributors
 
