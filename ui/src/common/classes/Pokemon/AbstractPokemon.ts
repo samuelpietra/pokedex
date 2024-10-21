@@ -1,3 +1,4 @@
+import { PokemonStatName, PokemonTypeName } from '../../types/pokemon'
 import { Pokemon } from './Pokemon'
 
 export abstract class AbstractPokemon {
@@ -7,8 +8,8 @@ export abstract class AbstractPokemon {
   name: string
   order: number
   sprite: string
-  stats: Record<string, number | string>[]
-  types: string[]
+  stats: Array<{ name: PokemonStatName; points: number }>
+  types: PokemonTypeName[]
   weight: number
 
   constructor(pokemon: Pokemon) {

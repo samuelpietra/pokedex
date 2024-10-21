@@ -30,7 +30,6 @@ type PokemonTypeName =
   | 'psychic'
   | 'rock'
   | 'steel'
-  | 'stellar'
   | 'unknown'
   | 'water'
 
@@ -76,5 +75,5 @@ namespace PokemonAPI {
   }
 }
 
-export type { PokemonAPI, PokemonStatName }
+export type { PokemonAPI, PokemonStatName, PokemonTypeName }
 export { PokemonStatus }
