@@ -123,4 +123,18 @@ export const PokemonsController = {
       }
     }
   },
+
+  updatePokemonStatus: (request: Request, response: Response) => {
+    const id = Number(request.params.id);
+    const status = request.body.status as PokemonStatus;
+
+    const match = storedPokemons.find((pokemon) => pokemon.id === Number(id));
+
+    if (match) {
+      match.status = status;
+      response.json(match);
+    } else {
+      response.status(404).send({ status: 404, message: 'Not Found' });
+    }
+  },
 };

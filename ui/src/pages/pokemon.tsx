@@ -24,38 +24,40 @@ export function PokemonPage() {
 
   const { id = '' } = useParams<{ id: string }>()
 
-  const { error, isLoading, payload, request } = useHttpStateful<Pokemon>(
-    'get',
-    'v1/pokemons/:id',
-  )
+  const {
+    error: getPokemonError,
+    isLoading: isLoadingPokemon,
+    payload: pokemon,
+    request,
+  } = useHttpStateful<Pokemon>('get', 'v1/pokemons/:id')
 
   const getPokemon = () => {
     request({ urlParams: { id } })
   }
 
-  const primaryType = payload?.types[0] || 'unknown'
+  const primaryType = pokemon?.types[0] || 'unknown'
 
   useLayoutEffect(() => {
     setBackgroundColor(`bg-pk-type-${primaryType}`)
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [payload])
+  }, [pokemon])
 
   useEffect(() => {
     getPokemon()
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [id])
 
-  if (isLoading)
+  if (isLoadingPokemon)
     return (
       <div className="flex h-screen items-center justify-center font-bold text-pk-gray-white">
         Loading...
       </div>
     )
 
-  if (error)
+  if (getPokemonError)
     return (
       <div className="flex h-screen items-center justify-center">
-        {error.status === HttpStatusCode.NotFound ? (
+        {getPokemonError.status === HttpStatusCode.NotFound ? (
           <NotFoundStateMessage />
         ) : (
           <ErrorStateMessage onRetry={getPokemon} />
@@ -63,7 +65,7 @@ export function PokemonPage() {
       </div>
     )
 
-  if (!payload) return null
+  if (!pokemon) return null
 
   return (
     <>
@@ -81,7 +83,7 @@ export function PokemonPage() {
             </button>
 
             <h1 className="text-pk-head font-bold text-pk-gray-white">
-              {payload.name.replace('-m', '♂').replace('-f', '♀')}
+              {pokemon.name.replace('-m', '♂').replace('-f', '♀')}
             </h1>
           </div>
 
@@ -99,19 +101,15 @@ export function PokemonPage() {
         <div className="absolute min-h-full w-full translate-y-56 rounded-lg bg-pk-gray-background pt-14" />
 
         <div className="z-10 pb-4">
-          <PokemonTypesRow types={payload.types} />
+          <PokemonTypesRow types={pokemon.types} />
 
           <PokemonSection title="About" />
 
-          <PokemonMeasures
-            height={payload.height}
-            status={payload.status}
-            weight={payload.weight}
-          />
+          <PokemonMeasures getPokemon={getPokemon} {...pokemon} />
 
           <div className="flex flex-col justify-center px-[20px] sm:px-[45px] md:px-[90px]">
             <p className="text-pk-body3 py-6 text-center text-pk-gray-dark">
-              {payload.description}
+              {pokemon.description}
             </p>
 
             <PokemonSection title="Base Stats" />
@@ -119,12 +117,12 @@ export function PokemonPage() {
             <div className="mb-6 grid grid-cols-1 justify-items-center gap-2 md:grid-cols-2">
               <PokemonStatsBarChart
                 primaryType={primaryType}
-                stats={payload.stats}
+                stats={pokemon.stats}
               />
 
               <PokemonStatsRadarChart
                 primaryType={primaryType}
-                stats={payload.stats}
+                stats={pokemon.stats}
               />
             </div>
           </div>

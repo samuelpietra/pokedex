@@ -19,15 +19,15 @@ export function PokemonCard({
   const navigate = useNavigate()
 
   const hasCaptured = status === PokemonStatus.Captured
-  const hasSeen = status === PokemonStatus.Seen
+  const isUnkown = !allSeen && status === PokemonStatus.Unknown
 
   return (
     <button
-      // className={`${!encountered && 'pointer-events-none'}`}
+      className={`${isUnkown && 'pointer-events-none'}`}
       onClick={() => navigate(`/pokemons/${id}`)}
     >
       <Card
-        className={`relative h-[108px] w-[104px] overflow-hidden bg-pk-gray-white ${(allSeen || hasSeen) && 'hover:border-pk-primary hover:bg-red-100'}`}
+        className={`relative h-[108px] w-[104px] overflow-hidden bg-pk-gray-white ${!isUnkown && 'hover:border-pk-primary hover:bg-red-100'}`}
       >
         <div
           className={`flex  px-2 pt-1 ${hasCaptured ? 'items-center justify-between' : 'justify-end'}`}
@@ -42,7 +42,7 @@ export function PokemonCard({
           <img
             src={sprite}
             alt=""
-            className={`z-10  ${!(allSeen || hasSeen) && 'contrast-0 filter'}`}
+            className={`z-10  ${isUnkown && 'contrast-0 filter'}`}
             width={68}
           />
 

@@ -5,13 +5,15 @@ import { PokemonStatus } from '../common/types/pokemon'
 import { SwapStatusButton } from './swap-status-button'
 import { Separator } from './ui/separator'
 
-type PokemonMeasuresProps = Pick<Pokemon, 'height' | 'status' | 'weight'>
+type PokemonMeasuresProps = Pick<Pokemon, 'height' | 'id' | 'status' | 'weight'>
 
 export function PokemonMeasures({
   height,
+  id,
+  getPokemon,
   status = PokemonStatus.Seen,
   weight,
-}: PokemonMeasuresProps) {
+}: PokemonMeasuresProps & { getPokemon: () => void }) {
   return (
     <div className="flex flex-row justify-center">
       <div className="flex w-28 flex-col items-center gap-2">
@@ -37,7 +39,7 @@ export function PokemonMeasures({
       <Separator orientation="vertical" className="mx-1 h-10" />
 
       <div className="flex w-28 flex-col items-center">
-        <SwapStatusButton status={status} />
+        <SwapStatusButton id={id} onUpdateStatus={getPokemon} status={status} />
       </div>
     </div>
   )

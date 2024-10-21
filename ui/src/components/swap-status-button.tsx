@@ -2,9 +2,13 @@ import { Eye, EyeOff } from 'lucide-react'
 import { useState } from 'react'
 
 import ColoredPokeball from '../assets/ColoredPokeball.png'
+import { Pokemon } from '../common/classes/Pokemon/Pokemon'
 import { PokemonStatus } from '../common/types/pokemon'
+import useHttpStateful from '../hooks/useHttpStateful'
 
 interface SwapStatusButtonProps {
+  id: number
+  onUpdateStatus: () => void
   status: PokemonStatus
 }
 
@@ -26,15 +30,36 @@ const statusMap = {
   },
 }
 
-export function SwapStatusButton({ status }: SwapStatusButtonProps) {
+export function SwapStatusButton({
+  id,
+  onUpdateStatus,
+  status,
+}: SwapStatusButtonProps) {
   const [currentStatus, setCurrentStatus] = useState(status)
 
-  const handleSwap = () => {
+  const { isLoading: isUpdatingStatus, request: updateStatus } =
+    useHttpStateful<Pokemon>('patch', 'v1/pokemons/:id')
+
+  const handleSwap = async () => {
+    const { error } = await updateStatus({
+      urlParams: { id },
+      body: { status: statusMap[currentStatus].next },
+    })
+
+    if (error) {
+      return
+    }
+
     setCurrentStatus((prev) => statusMap[prev].next)
+    onUpdateStatus()
   }
 
   return (
-    <button className="p-2 pt-0" onClick={handleSwap}>
+    <button
+      className="p-2 pt-0"
+      disabled={isUpdatingStatus}
+      onClick={handleSwap}
+    >
       <div className="mb-2 flex flex-row items-center gap-2">
         {statusMap[currentStatus].icon}
 
