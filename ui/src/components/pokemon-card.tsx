@@ -11,7 +11,7 @@ export function PokemonCard({
   encountered = false,
 }: PokemonCardProps) {
   return (
-    <Card className="bg-pk-gray-white relative h-[108px] w-[104px] overflow-hidden">
+    <Card className="relative h-[108px] w-[104px] overflow-hidden bg-pk-gray-white">
       <div
         className={`flex  px-2 pt-1 ${caught ? 'items-center justify-between' : 'justify-end'}`}
       >
@@ -27,10 +27,10 @@ export function PokemonCard({
           width={68}
         />
 
-        <p className="text-pk-body-3 text-pk-gray-dark z-10">Pokémon Name</p>
+        <p className="z-10 text-pk-body-3 text-pk-gray-dark">Pokémon Name</p>
       </div>
 
-      <div className="bg-pk-gray-background absolute min-h-full min-w-full -translate-y-10 rounded-lg" />
+      <div className="absolute min-h-full min-w-full -translate-y-10 rounded-lg bg-pk-gray-background" />
     </Card>
   )
 }
