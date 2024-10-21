@@ -34,7 +34,7 @@ export function PokemonPage() {
             </h1>
           </div>
 
-          <p className="text-pk-sub-2 font-bold text-pk-gray-white">#999</p>
+          <p className="text-pk-sub-1 font-bold text-pk-gray-white">#999</p>
         </div>
 
         <PokemonNavigator />
