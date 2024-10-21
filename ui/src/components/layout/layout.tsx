@@ -5,12 +5,14 @@ import { Header } from './header'
 
 export function Layout() {
   return (
-    <div className="bg-pk-primary flex min-h-screen flex-col">
-      <Header />
+    <div className="flex justify-center bg-pk-primary">
+      <div className="flex min-h-screen max-w-[1280px] flex-col ">
+        <Header />
 
-      <Content>
-        <Outlet />
-      </Content>
+        <Content>
+          <Outlet />
+        </Content>
+      </div>
     </div>
   )
 }

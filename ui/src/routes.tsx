@@ -12,7 +12,7 @@ export const router = createBrowserRouter([
     children: [{ path: '/', element: <DashboardPage /> }],
   },
   {
-    path: '/pokemon/:id',
+    path: '/pokemons/:id',
     element: <PokemonPage />,
     errorElement: <h1>Not Found</h1>,
   },

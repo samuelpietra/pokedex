@@ -7,18 +7,18 @@ export function Header() {
   return (
     <div className="p-3">
       <div className="mb-2 flex flex-row gap-4">
-        <img alt="" className="text-pk-gray-white h-6 w-6" src={Pokeball} />
+        <img alt="" className="h-6 w-6 text-pk-gray-white" src={Pokeball} />
 
-        <h1 className="text-pk-headline text-pk-gray-white font-bold">
+        <h1 className="text-pk-headline font-bold text-pk-gray-white">
           Pokédex
         </h1>
       </div>
 
-      <div className="flex flex-row items-center gap-4">
+      <div className="flex flex-row items-center gap-4 sm:w-[300px]">
         <SearchInput placeholder="Search" />
 
-        <button className="bg-pk-gray-white hover:bg-pk-gray-background rounded-full p-2">
-          <Hash className="text-pk-primary h-4 w-4" />
+        <button className="rounded-full bg-pk-gray-white p-2 hover:bg-pk-gray-background">
+          <Hash className="h-4 w-4 text-pk-primary" />
           <span className="sr-only">Filter by</span>
         </button>
       </div>

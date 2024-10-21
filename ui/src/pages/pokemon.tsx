@@ -3,6 +3,10 @@ import { Helmet } from 'react-helmet-async'
 import { Link } from 'react-router-dom'
 
 import Pokeball from '../assets/Pokeball.svg'
+import {
+  PokemonStatsBarChart,
+  PokemonStatsRadarChart,
+} from '../components/charts'
 import { PokemonMeasures } from '../components/pokemon-measures'
 import { PokemonNavigator } from '../components/pokemon-navigator'
 import { PokemonTypesRow } from '../components/pokemon-types-row'
@@ -42,7 +46,9 @@ export function PokemonPage() {
         <div
           className="absolute left-2 min-h-full translate-y-56 rounded-lg bg-pk-gray-background pt-14"
           style={{ minWidth: 'calc(100vw - 16px)' }}
-        >
+        />
+
+        <div className="z-10">
           <PokemonTypesRow />
 
           <div className="mb-4 flex justify-center">
@@ -55,6 +61,17 @@ export function PokemonPage() {
             There is a plant seed on its back right from the day this Pokémon is
             born. The seed slowly grows larger.
           </p>
+
+          <div className="mb-4 flex justify-center">
+            <p className="text-pk-sub-1 font-bold text-pk-type-grass">
+              Base Stats
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 justify-items-center gap-2 md:grid-cols-2">
+            <PokemonStatsBarChart />
+            <PokemonStatsRadarChart />
+          </div>
         </div>
       </div>
     </>

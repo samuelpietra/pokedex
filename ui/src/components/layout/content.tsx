@@ -4,7 +4,7 @@ interface ContentProps {
 
 export function Content({ children }: ContentProps) {
   return (
-    <div className="bg-pk-gray-white m-2 flex-1 rounded-lg px-3 py-6">
+    <div className="m-2 w-full flex-1 rounded-lg bg-pk-gray-white px-3 py-6">
       {children}
     </div>
   )
