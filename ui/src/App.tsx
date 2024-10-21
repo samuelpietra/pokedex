@@ -1,5 +1,6 @@
 import axios from 'axios'
 import React, { useEffect, useState } from 'react'
+import { Helmet, HelmetProvider } from 'react-helmet-async'
 import { RouterProvider } from 'react-router-dom'
 
 import { router } from './routes'
@@ -29,7 +30,12 @@ function App() {
 
   if (!loading) console.info('Health Check from server: ', healthCheckMessage)
 
-  return <RouterProvider router={router} />
+  return (
+    <HelmetProvider>
+      <Helmet titleTemplate="%s | Pokédex" />
+      <RouterProvider router={router} />
+    </HelmetProvider>
+  )
 }
 
 export default App
