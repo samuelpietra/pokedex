@@ -36,7 +36,10 @@ const chartConfig = {
 
 export function PokemonStatsRadarChart() {
   return (
-    <ChartContainer config={chartConfig} className="w-[320px]">
+    <ChartContainer
+      config={chartConfig}
+      className="w-[320px] lg:w-[400px] xl:w-[500px]"
+    >
       <RadarChart data={chartData}>
         <ChartTooltip
           cursor={false}

@@ -27,7 +27,7 @@ export function PokemonPage() {
     <>
       <Helmet title="Pokémon" />
 
-      <div className="relative flex min-h-screen flex-col overflow-hidden bg-pk-type-grass">
+      <div className="relative flex min-h-screen flex-col overflow-hidden">
         <div className="flex flex-row items-center justify-between p-5 pb-6">
           <div className="flex flex-row gap-2">
             <button>
@@ -38,7 +38,7 @@ export function PokemonPage() {
               <span className="sr-only">Back to Dashboard</span>
             </button>
 
-            <h1 className="z-10 text-pk-head font-bold text-pk-gray-white">
+            <h1 className="text-pk-head font-bold text-pk-gray-white">
               Bulbasaur
             </h1>
           </div>
@@ -54,10 +54,7 @@ export function PokemonPage() {
           src={Pokeball}
         />
 
-        <div
-          className="absolute left-2 min-h-full translate-y-56 rounded-lg bg-pk-gray-background pt-14"
-          style={{ minWidth: 'calc(100vw - 16px)' }}
-        />
+        <div className="absolute min-h-full w-full translate-y-56 rounded-lg bg-pk-gray-background pt-14" />
 
         <div className="z-10 pb-4">
           <PokemonTypesRow />
@@ -65,16 +62,18 @@ export function PokemonPage() {
           <PokemonSection title="About" />
           <PokemonMeasures />
 
-          <p className="text-pk-body3 p-6 text-center text-pk-gray-dark">
-            There is a plant seed on its back right from the day this Pokémon is
-            born. The seed slowly grows larger.
-          </p>
+          <div className="flex flex-col justify-center px-[20px] sm:px-[45px] md:px-[90px]">
+            <p className="text-pk-body3 py-6 text-center text-pk-gray-dark">
+              There is a plant seed on its back right from the day this Pokémon
+              is born. The seed slowly grows larger.
+            </p>
 
-          <PokemonSection title="Base Stats" />
+            <PokemonSection title="Base Stats" />
 
-          <div className="mb-6 grid grid-cols-1 justify-items-center gap-2 md:grid-cols-2">
-            <PokemonStatsBarChart />
-            <PokemonStatsRadarChart />
+            <div className="mb-6 grid grid-cols-1 justify-items-center gap-2 md:grid-cols-2">
+              <PokemonStatsBarChart />
+              <PokemonStatsRadarChart />
+            </div>
           </div>
 
           <PokemonSection title="Evolution" />

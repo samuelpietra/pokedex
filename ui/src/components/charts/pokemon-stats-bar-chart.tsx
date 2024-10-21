@@ -19,7 +19,10 @@ const chartConfig = {
 
 export function PokemonStatsBarChart() {
   return (
-    <ChartContainer config={chartConfig} className="-ml-5 w-[320px]">
+    <ChartContainer
+      config={chartConfig}
+      className="-ml-5 w-[320px] lg:w-[400px] xl:w-[500px]"
+    >
       <BarChart accessibilityLayer data={chartData} layout="vertical">
         <YAxis
           dataKey="attribute"
