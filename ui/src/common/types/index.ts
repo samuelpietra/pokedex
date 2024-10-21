@@ -1,1 +1,2 @@
-export * as PokemonDef from './pokemon'
+export type { PokemonAPI } from './pokemon'
+export type { PokemonSpeciesAPI } from './pokemon-species'

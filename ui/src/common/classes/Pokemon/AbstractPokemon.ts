@@ -1,28 +1,25 @@
-import { PokemonDef } from '../../types'
+import { Pokemon } from './Pokemon'
 
 export abstract class AbstractPokemon {
+  description: string
+  height: number
+  id: number
   name: string
+  order: number
+  sprite: string
+  stats: Record<string, number | string>[]
   types: string[]
   weight: number
-  height: number
-  order: number
 
-  constructor(pokemon: PokemonDef.Pokemon) {
+  constructor(pokemon: Pokemon) {
+    this.description = pokemon.description
+    this.height = pokemon.height
+    this.id = pokemon.id
     this.name = pokemon.name
+    this.order = pokemon.order
+    this.sprite = pokemon.sprite
+    this.stats = pokemon.stats
     this.types = pokemon.types
     this.weight = pokemon.weight
-    this.height = pokemon.height
-    this.order = pokemon.order
   }
-
-  abstract getName(): string
-  abstract getTypesString(): string[]
-  // TODO: Properly Type Types depending on the implementation
-  abstract getTypes(): unknown[]
-  abstract getWeight(): number
-  abstract getHeight(): number
-  abstract getOrder(): number
-  // TODO Properly Type Evolutions depending on implementation
-  abstract getEvolutions(): unknown
-  abstract getNextEvolutionName(): string
 }

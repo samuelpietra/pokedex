@@ -1,5 +1,11 @@
+import { PokemonStatus } from '../../../common/types/pokemon/pokemon'
 import { AbstractPokemon } from './AbstractPokemon'
-// @ts-expect-error
+
 export class Pokemon extends AbstractPokemon {
-  // TODO: Implement This Class
+  status?: PokemonStatus
+
+  constructor(pokemon: Pokemon) {
+    super(pokemon)
+    this.status = PokemonStatus.Unknown
+  }
 }
