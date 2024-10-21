@@ -1,5 +1,8 @@
 import axios from 'axios'
 import React, { useEffect, useState } from 'react'
+import { RouterProvider } from 'react-router-dom'
+
+import { router } from './routes'
 
 const healthCheckPing = async (
   setMessage: React.Dispatch<React.SetStateAction<string>>,
@@ -24,14 +27,9 @@ function App() {
     healthCheckPing(setHealthCheckMessage, setLoading)
   }, [])
 
-  return (
-    <div>
-      Successfuly started Client
-      <div>
-        Health Check from server: {loading ? 'Loading...' : healthCheckMessage}
-      </div>
-    </div>
-  )
+  if (!loading) console.info('Health Check from server: ', healthCheckMessage)
+
+  return <RouterProvider router={router} />
 }
 
 export default App
