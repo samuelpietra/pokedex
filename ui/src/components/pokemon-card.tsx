@@ -46,7 +46,9 @@ export function PokemonCard({
             width={68}
           />
 
-          <p className="z-10 text-pk-body-3 text-pk-gray-dark">{name}</p>
+          <p className="z-10 text-pk-body-3 text-pk-gray-dark">
+            {name.replace('-m', '♂').replace('-f', '♀')}
+          </p>
         </div>
 
         <div className="absolute min-h-full min-w-full -translate-y-10 rounded-lg bg-pk-gray-background" />

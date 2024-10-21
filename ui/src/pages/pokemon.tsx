@@ -81,7 +81,7 @@ export function PokemonPage() {
             </button>
 
             <h1 className="text-pk-head font-bold text-pk-gray-white">
-              {payload.name}
+              {payload.name.replace('-m', '♂').replace('-f', '♀')}
             </h1>
           </div>
 
