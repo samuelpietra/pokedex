@@ -1,11 +1,11 @@
 import { Hash } from 'lucide-react'
 
-import Pokeball from '../../assets/Pokeball.svg'
-import { SearchInput } from '../ui/search-input'
+import Pokeball from '../assets/Pokeball.svg'
+import { SearchInput } from './ui/search-input'
 
-export function Header() {
+export function DashboardHeader() {
   return (
-    <div className="p-3">
+    <div className="mb-6">
       <div className="mb-2 flex flex-row gap-4">
         <img alt="" className="h-6 w-6 text-pk-gray-white" src={Pokeball} />
 

@@ -1,4 +1,5 @@
 import { ArrowLeft } from 'lucide-react'
+import { useLayoutEffect } from 'react'
 import { Helmet } from 'react-helmet-async'
 import { Link } from 'react-router-dom'
 
@@ -7,6 +8,7 @@ import {
   PokemonStatsBarChart,
   PokemonStatsRadarChart,
 } from '../components/charts'
+import { useLayoutState } from '../components/layout'
 import { PokemonMeasures } from '../components/pokemon-measures'
 import { PokemonNavigator } from '../components/pokemon-navigator'
 import { PokemonSection } from '../components/pokemon-section'
@@ -14,6 +16,13 @@ import { PokemonTimeline } from '../components/pokemon-timeline'
 import { PokemonTypesRow } from '../components/pokemon-types-row'
 
 export function PokemonPage() {
+  const { setBackgroundColor } = useLayoutState()
+
+  useLayoutEffect(() => {
+    setBackgroundColor('bg-pk-type-grass')
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [])
+
   return (
     <>
       <Helmet title="Pokémon" />
