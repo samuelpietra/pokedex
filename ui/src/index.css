@@ -101,7 +101,7 @@
 @layer base {
   * {
     @apply border-border;
-    font-weight: bold;
+    font-family: 'Poppins';
   }
   body {
     @apply bg-background text-foreground;
