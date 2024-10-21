@@ -1,45 +1,109 @@
-Welcome! In this repo, we're going to try to build a Pokedex!
+<h3 align="center">
+  <img alt="" src="./docs/logo.webp" />
+  <p align="center">🌎 Gotta fetch 'em all <b>(with JS)</b>!</p>
+</h3>
 
-It's not required to use this starter code, but it is required to pass the tests. So if a different folder structure is going to be used, please make sure the migrate the tests.
+<br />
 
-The starter code is configured with a `server` and a `ui` folder. Inside of the `ui` folder there is a `common` folder for code that is meant to be shared between both `server` and `ui`.
+<p align="center">
+  <kbd>
+    <img width="220" style="border-radius: 5px" height="400" src="./docs/1.png" alt="Intro">
+  </kbd>
+  &nbsp;&nbsp;&nbsp;&nbsp;
+  <kbd>
+    <img width="220" style="border-radius: 5px" height="400" src="./docs/3.png" alt="Register adopt">
+  </kbd>
+  &nbsp;&nbsp;&nbsp;&nbsp;
+  <kbd>
+    <img width="220" style="border-radius: 5px" height="400" src="./docs/2.png" alt="Chat">
+  </kbd>
+</p>
 
-Because of Create-React-App, `ui` code cannot import from outside of `ui/src`. So to circumvent that, we're just going to put `common` inside of `ui/src`
+<br />
 
-To import code inside `ui/src/common` into the server, feel free to use `../` paths. In a typical production setting, we'd expect `common` to be it's own module, but to reduce complexity, we're not going to set it up like a proper monorepo.
+# Table of contents
+
+- [Tools versions](#️tools-versions)
+- [Environment](#environment)
+- [Getting started](#getting-started)
+- [Responsiveness](#responsiveness)
+- [Current status](#current-status)
+- [Contributors](#contributors)
+
+# Tools versions
+
+Make sure to install and use required tools:
+
+- NodeJS @ 20.16.0
+- NPM @ 10.8.1
+
+# Environment
+
+## Cloning this project
+
+```bash
+git clone https://github.com/samuelpietra/pokedex.git
+```
+
+## Installing dependencies
+
+This project contains both `ui` and `server` projects. You may want to use two terminal instances in order to test our fullstack experience.
+
+### Backend dependencies
+
+```bash
+cd server && npm install
+```
+
+### Frontend dependencies
+
+```bash
+cd ui && npm install
+```
+
+## Creating .env file
+
+By now, only our frontend project will need an environment file to avoid breaking on build due to linting warnings.
+
+```bash
+cd ui && cp .env.example .env.local
+```
 
 # Getting started
-1. Please clone this Repo to get started.
-2. Delete `.git` from the clone
-3. Create a private repo and invite the interviewers
 
-# Starting the App
+Now you should be able to start running both `ui` and `server` projects.
 
-To start the app, follow the steps.
+## Starting backend server
 
-## Starting the Server
 ```bash
-cd server
-npm i
-npm run dev
+cd server && npm run dev
 ```
 
-## Starting the UI
+## Starting frontend server
+
 ```bash
-cd ui
-npm i
-npm start
+cd ui && npm start
 ```
 
-## Running Tests
-```bash
-# must be ran on the root-level package json.
-npm run test
-```
+# Responsiveness
 
-# Implementation
-What is provided in this code base is just a suggestion. Types can be changed as you see fit. There's no expectation to keep any of the code here. The only true expectation is that the tests need to pass.
+In order to build and scale things faster, most of this project was built with [shadcn](https://ui.shadcn.com) - a clever abstraction of [radix-ui primitives](https://www.radix-ui.com/primitives) styled with [Tailwind CSS](https://tailwindcss.com).
 
-There is no need to hook up to an external database. An in-memory solution is sufficient.
+By this way, we could easily apply breaking points for many different screen resolutions. We tried to focus on the same breakpoints that Tailwind advices at their [Responsive Design](https://tailwindcss.com/docs/responsive-design) documentation.
 
-When you're finished, please provide steps on how to run your application.
+# Current status
+
+- [x] List both Dashboard and Collection
+- [x] Sort content by many filters
+- [x] Access a single pokémon details
+- [x] Ability to mark pokémons as Seen or Captured
+- [ ] Better classes distribution
+- [ ] Enhanced unit tests and coverage
+
+# Contributors
+
+<table>
+  <tr>
+    <td align="center"><a href="https://github.com/samuelpietra"><img style="border-radius: 50%; margin-top: 0.4em" src="https://avatars.githubusercontent.com/samuelpietra" width="100px;" alt=""/><br /><sub><b>Samuel Pietra</b></sub></a><br /></td>
+  </tr>
+</table>
