@@ -23,7 +23,10 @@ export function DashboardPage() {
 
   const getFirstItems = async () => {
     const { payload } = await request({
-      params: { offset: 0, limit: REQUEST_LIMIT },
+      params: {
+        offset: 0,
+        limit: REQUEST_LIMIT,
+      },
     })
 
     if (payload) {
@@ -34,7 +37,10 @@ export function DashboardPage() {
 
   const getMoreItems = async () => {
     const { payload } = await request({
-      params: { offset, limit: REQUEST_LIMIT },
+      params: {
+        offset,
+        limit: REQUEST_LIMIT,
+      },
     })
 
     if (payload) {
@@ -56,7 +62,7 @@ export function DashboardPage() {
   return (
     <>
       <Helmet title="Dashboard" />
-      <PageHeader title="Dashboard" />
+      <PageHeader title="Dashboard" setItems={setItems} />
 
       <div className="flex flex-col rounded-lg bg-pk-gray-white p-6">
         <ol className="grid grid-cols-3 gap-2 sm:grid-cols-5 md:grid-cols-6 lg:grid-cols-8 xl:grid-cols-10">
