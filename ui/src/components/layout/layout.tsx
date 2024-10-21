@@ -1,13 +1,16 @@
-import { ReactNode } from 'react'
+import { Outlet } from 'react-router-dom'
 
+import { Content } from './content'
 import { Header } from './header'
 
-interface LayoutProps {
-  children: ReactNode
-}
+export function Layout() {
+  return (
+    <div className="bg-pk-primary flex min-h-screen flex-col">
+      <Header />
 
-export function Layout({ children }: LayoutProps) {
-  return <div className="w-100 flex flex-col">{children}</div>
+      <Content>
+        <Outlet />
+      </Content>
+    </div>
+  )
 }
-
-Layout.Header = Header

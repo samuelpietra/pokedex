@@ -5,7 +5,7 @@ import { SearchInput } from '../ui/search-input'
 
 export function Header() {
   return (
-    <div className="bg-pk-primary p-3">
+    <div className="p-3">
       <div className="mb-2 flex flex-row gap-4">
         <img alt="" className="text-pk-gray-white h-6 w-6" src={Pokeball} />
 
