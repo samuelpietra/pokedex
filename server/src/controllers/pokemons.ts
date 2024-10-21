@@ -1,8 +1,10 @@
 import { Request, Response } from 'express';
 
 import { Pokemon } from '../../../ui/src/common/classes/Pokemon/Pokemon';
+import { PokemonStatus } from '../../../ui/src/common/types/pokemon/pokemon';
 import { PokemonAPI, PokemonSpeciesAPI } from '../../../ui/src/common/types';
 import { http } from '../http';
+import axios from 'axios';
 
 const storedPokemons: Pokemon[] = [];
 
@@ -26,13 +28,21 @@ async function fetchPokemonById(id: string) {
         name: stat.name,
         points: base_stat,
       })),
+      status: PokemonStatus.Unknown,
       types: pokemonResponse.data.types.map(({ type }) => type.name),
       weight: pokemonResponse.data.weight,
     };
 
     return new Pokemon(pokemon);
   } catch (error) {
-    throw new Error(JSON.stringify(error));
+    if (axios.isAxiosError(error)) {
+      throw new Error(
+        JSON.stringify({
+          name: error.response?.status,
+          message: error.response?.statusText,
+        })
+      );
+    }
   }
 }
 
@@ -51,7 +61,14 @@ async function fetchPaginatedPokemons(offset: number, limit: number) {
 
     return pokemons;
   } catch (error) {
-    throw new Error(JSON.stringify(error));
+    if (axios.isAxiosError(error)) {
+      throw new Error(
+        JSON.stringify({
+          name: error.response?.status,
+          message: error.response?.statusText,
+        })
+      );
+    }
   }
 }
 
@@ -71,10 +88,15 @@ export const PokemonsController = {
     try {
       const fetchedPokemon = await fetchPokemonById(id);
 
-      storedPokemons.push(fetchedPokemon);
-      response.json(fetchedPokemon);
+      if (fetchedPokemon) {
+        storedPokemons.push(fetchedPokemon);
+        response.json(fetchedPokemon);
+      }
     } catch (error) {
-      response.send(new Error('Something went wrong'));
+      if (error instanceof Error) {
+        const { name: status, message } = JSON.parse(error.message);
+        response.status(status).send({ status, message });
+      }
     }
   },
 
@@ -90,10 +112,15 @@ export const PokemonsController = {
     try {
       const fetchedPokemons = await fetchPaginatedPokemons(offset, limit);
 
-      storedPokemons.push(...fetchedPokemons);
-      response.json(fetchedPokemons);
+      if (fetchedPokemons?.length) {
+        storedPokemons.push(...fetchedPokemons);
+        response.json(fetchedPokemons);
+      }
     } catch (error) {
-      response.send(new Error('Something went wrong'));
+      if (error instanceof Error) {
+        const { name: status, message } = JSON.parse(error.message);
+        response.status(status).send({ status, message });
+      }
     }
   },
 };
