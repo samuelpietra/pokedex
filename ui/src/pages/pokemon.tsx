@@ -9,6 +9,8 @@ import {
 } from '../components/charts'
 import { PokemonMeasures } from '../components/pokemon-measures'
 import { PokemonNavigator } from '../components/pokemon-navigator'
+import { PokemonSection } from '../components/pokemon-section'
+import { PokemonTimeline } from '../components/pokemon-timeline'
 import { PokemonTypesRow } from '../components/pokemon-types-row'
 
 export function PokemonPage() {
@@ -48,13 +50,10 @@ export function PokemonPage() {
           style={{ minWidth: 'calc(100vw - 16px)' }}
         />
 
-        <div className="z-10">
+        <div className="z-10 pb-4">
           <PokemonTypesRow />
 
-          <div className="mb-4 flex justify-center">
-            <p className="text-pk-sub-1 font-bold text-pk-type-grass">About</p>
-          </div>
-
+          <PokemonSection title="About" />
           <PokemonMeasures />
 
           <p className="text-pk-body3 p-6 text-center text-pk-gray-dark">
@@ -62,16 +61,15 @@ export function PokemonPage() {
             born. The seed slowly grows larger.
           </p>
 
-          <div className="mb-4 flex justify-center">
-            <p className="text-pk-sub-1 font-bold text-pk-type-grass">
-              Base Stats
-            </p>
-          </div>
+          <PokemonSection title="Base Stats" />
 
-          <div className="grid grid-cols-1 justify-items-center gap-2 md:grid-cols-2">
+          <div className="mb-6 grid grid-cols-1 justify-items-center gap-2 md:grid-cols-2">
             <PokemonStatsBarChart />
             <PokemonStatsRadarChart />
           </div>
+
+          <PokemonSection title="Evolution" />
+          <PokemonTimeline />
         </div>
       </div>
     </>
