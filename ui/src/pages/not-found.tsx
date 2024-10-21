@@ -6,7 +6,7 @@ export function NotFoundPage() {
   const navigate = useNavigate()
 
   return (
-    <div className="bg-pk-not-found flex h-screen w-screen min-w-[400px] flex-col items-center justify-center">
+    <div className="flex h-screen w-screen min-w-[400px] flex-col items-center justify-center bg-pk-not-found">
       <img src={Snorlax} alt="" className="w-[400px]" />
 
       <h1 className="text-pk-head font-bold text-pk-gray-dark">404</h1>
@@ -19,7 +19,7 @@ export function NotFoundPage() {
       </span>
 
       <button
-        className="bg-pk-not-found-foreground rounded-md p-2 font-bold text-pk-gray-white hover:opacity-60"
+        className="rounded-md bg-pk-not-found-foreground p-2 font-bold text-pk-gray-white hover:opacity-60"
         onClick={() => navigate('/')}
       >
         Back to Dashboard

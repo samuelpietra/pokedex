@@ -1,10 +1,7 @@
-import express from 'express';
-import cors from 'cors';
+import express from "express";
+import cors from "cors";
 
-import { pokemonsRouter } from './routes/pokemons';
-
-// @FIXME: Temporary fix to avoid SSL issues
-process.env.NODE_TLS_REJECT_UNAUTHORIZED = 0;
+import { pokemonsRouter } from "./routes/pokemons";
 
 const PORT = process.env.PORT || 8080;
 const app = express();

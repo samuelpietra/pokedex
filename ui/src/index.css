@@ -103,10 +103,12 @@
 @layer base {
   * {
     @apply border-border;
-    font-family: 'Poppins';
+    font-family: "Poppins";
   }
   body {
     @apply bg-background text-foreground;
-    font-feature-settings: 'rlig' 1, 'calt' 1;
+    font-feature-settings:
+      "rlig" 1,
+      "calt" 1;
   }
 }

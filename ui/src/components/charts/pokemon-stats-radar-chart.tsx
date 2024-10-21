@@ -1,7 +1,7 @@
 import { PolarAngleAxis, PolarGrid, Radar, RadarChart } from 'recharts'
 
 import { Pokemon } from '../../common/classes/Pokemon/Pokemon'
-import { PokemonStatName, PokemonTypeName } from '../../common/types/pokemon'
+import { PokemonTypeName } from '../../common/types/pokemon'
 import {
   ChartConfig,
   ChartContainer,

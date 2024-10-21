@@ -1,10 +1,10 @@
-import { Request, Response } from 'express';
+import { Request, Response } from "express";
 
-import { Pokemon } from '../../../ui/src/common/classes/Pokemon/Pokemon';
-import { PokemonStatus } from '../../../ui/src/common/types/pokemon/pokemon';
-import { PokemonAPI, PokemonSpeciesAPI } from '../../../ui/src/common/types';
-import { http } from '../http';
-import axios from 'axios';
+import { Pokemon } from "../../../ui/src/common/classes/Pokemon/Pokemon";
+import { PokemonStatus } from "../../../ui/src/common/types/pokemon/pokemon";
+import { PokemonAPI, PokemonSpeciesAPI } from "../../../ui/src/common/types";
+import { http } from "../http";
+import axios from "axios";
 
 const storedPokemons: Pokemon[] = [];
 
@@ -17,8 +17,8 @@ async function fetchPokemonById(id: string) {
 
     const pokemon = {
       description: speciesResponse.data.flavor_text_entries
-        .find((entry) => entry.language.name === 'en')
-        ?.flavor_text.replace(/[\n\f]/g, ' ') as string,
+        .find((entry) => entry.language.name === "en")
+        ?.flavor_text.replace(/[\n\f]/g, " ") as string,
       height: pokemonResponse.data.height,
       id: pokemonResponse.data.id,
       name: pokemonResponse.data.name,
@@ -40,7 +40,7 @@ async function fetchPokemonById(id: string) {
         JSON.stringify({
           name: error.response?.status,
           message: error.response?.statusText,
-        })
+        }),
       );
     }
   }
@@ -48,15 +48,15 @@ async function fetchPokemonById(id: string) {
 
 async function fetchPaginatedPokemons(offset: number, limit: number) {
   try {
-    const { data } = await http.get('/v2/pokemon', {
+    const { data } = await http.get("/v2/pokemon", {
       params: { offset, limit },
     });
 
     const pokemons: Pokemon[] = await Promise.all(
       data.results.map(async ({ url }: { url: string }) => {
-        const [id] = url.split('/').slice(-2);
+        const [id] = url.split("/").slice(-2);
         return fetchPokemonById(id);
-      })
+      }),
     );
 
     return pokemons;
@@ -66,7 +66,7 @@ async function fetchPaginatedPokemons(offset: number, limit: number) {
         JSON.stringify({
           name: error.response?.status,
           message: error.response?.statusText,
-        })
+        }),
       );
     }
   }
@@ -77,7 +77,7 @@ export const PokemonsController = {
     const { id } = request.params;
 
     const fetchedPokemon = storedPokemons.find(
-      (pokemon) => pokemon.id === Number(id)
+      (pokemon) => pokemon.id === Number(id),
     );
 
     if (fetchedPokemon) {
@@ -134,7 +134,7 @@ export const PokemonsController = {
       match.status = status;
       response.json(match);
     } else {
-      response.status(404).send({ status: 404, message: 'Not Found' });
+      response.status(404).send({ status: 404, message: "Not Found" });
     }
   },
 };
