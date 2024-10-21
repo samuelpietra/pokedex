@@ -34,6 +34,34 @@
     --ring: 215 20.2% 65.1%;
 
     --radius: 0.5rem;
+
+    /* Indetity */
+    --pk-primary: 350, 91%, 45%;
+    /* Pokémon Type */
+    --pk-type-bug: 66, 68%, 43%;
+    --pk-type-dark: 16, 21%, 38%;
+    --pk-type-dragon: 257, 100%, 61%;
+    --pk-type-electric: 47, 94%, 58%;
+    --pk-type-fairy: 348, 59%, 76%;
+    --pk-type-fighting: 351, 70%, 45%;
+    --pk-type-fire: 23, 91%, 58%;
+    --pk-type-flying: 255, 71%, 75%;
+    --pk-type-ghost: 263, 29%, 47%;
+    --pk-type-normal: 54, 20%, 58%;
+    --pk-type-grass: 100, 56%, 54%;
+    --pk-type-ground: 45, 64%, 65%;
+    --pk-type-ice: 188, 52%, 74%;
+    --pk-type-poison: 304, 45%, 44%;
+    --pk-type-psychic: 343, 95%, 66%;
+    --pk-type-rock: 49, 58%, 45%;
+    --pk-type-steel: 235, 21%, 77%;
+    --pk-type-water: 219, 77%, 66%;
+    /* Grayscale */
+    --pk-gray-dark: 0, 0%, 13%;
+    --pk-gray-medium: 0, 0%, 40%;
+    --pk-gray-light: 0, 0%, 88%;
+    --pk-gray-background: 0, 0%, 94%;
+    --pk-gray-white: 0, 0%, 100%;
   }
 
   .dark {
@@ -73,6 +101,7 @@
 @layer base {
   * {
     @apply border-border;
+    font-weight: bold;
   }
   body {
     @apply bg-background text-foreground;

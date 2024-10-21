@@ -46,6 +46,78 @@ export const theme = {
         DEFAULT: 'hsl(var(--card))',
         foreground: 'hsl(var(--card-foreground))',
       },
+      'pk-primary': {
+        DEFAULT: 'hsl(var(--pk-primary))',
+      },
+      'pk-type-bug': {
+        DEFAULT: 'hsl(var(--pk-type-bug))',
+      },
+      'pk-type-dark': {
+        DEFAULT: 'hsl(var(--pk-type-dark))',
+      },
+      'pk-type-dragon': {
+        DEFAULT: 'hsl(var(--pk-type-dragon))',
+      },
+      'pk-type-electric': {
+        DEFAULT: 'hsl(var(--pk-type-electric))',
+      },
+      'pk-type-fairy': {
+        DEFAULT: 'hsl(var(--pk-type-fairy))',
+      },
+      'pk-type-fighting': {
+        DEFAULT: 'hsl(var(--pk-type-fighting))',
+      },
+      'pk-type-fire': {
+        DEFAULT: 'hsl(var(--pk-type-fire))',
+      },
+      'pk-type-flying': {
+        DEFAULT: 'hsl(var(--pk-type-flying))',
+      },
+      'pk-type-ghost': {
+        DEFAULT: 'hsl(var(--pk-type-ghost))',
+      },
+      'pk-type-normal': {
+        DEFAULT: 'hsl(var(--pk-type-normal))',
+      },
+      'pk-type-grass': {
+        DEFAULT: 'hsl(var(--pk-type-grass))',
+      },
+      'pk-type-ground': {
+        DEFAULT: 'hsl(var(--pk-type-ground))',
+      },
+      'pk-type-ice': {
+        DEFAULT: 'hsl(var(--pk-type-ice))',
+      },
+      'pk-type-poison': {
+        DEFAULT: 'hsl(var(--pk-type-poison))',
+      },
+      'pk-type-psychic': {
+        DEFAULT: 'hsl(var(--pk-type-psychic))',
+      },
+      'pk-type-rock': {
+        DEFAULT: 'hsl(var(--pk-type-rock))',
+      },
+      'pk-type-steel': {
+        DEFAULT: 'hsl(var(--pk-type-steel))',
+      },
+      'pk-type-water': {
+        DEFAULT: 'hsl(var(--pk-type-water))',
+      },
+      'pk-gray-dark': {
+        DEFAULT: 'hsl(var(--pk-gray-dark))',
+      },
+      'pk-gray-medium': {
+        DEFAULT: 'hsl(var(--pk-gray-medium))',
+      },
+      'pk-gray-light': {
+        DEFAULT: 'hsl(var(--pk-gray-light))',
+      },
+      'pk-gray-background': {
+        DEFAULT: 'hsl(var(--pk-gray-background))',
+      },
+      'pk-gray-white': {
+        DEFAULT: 'hsl(var(--pk-gray-white))',
+      },
     },
     borderRadius: {
       lg: `var(--radius)`,
@@ -54,6 +126,16 @@ export const theme = {
     },
     fontFamily: {
       sans: ['var(--font-sans)', ...fontFamily.sans],
+    },
+    fontSize: {
+      'pk-head': ['24px', '32px'],
+      'pk-sub-1': ['14px', '16px'],
+      'pk-sub-2': ['12px', '16px'],
+      'pk-sub-3': ['10px', '16px'],
+      'pk-body-1': ['14px', '16px'],
+      'pk-body-2': ['12px', '16px'],
+      'pk-body-3': ['10px', '16px'],
+      'pk-caption': ['8px', '12px'],
     },
     keyframes: {
       'accordion-down': {
