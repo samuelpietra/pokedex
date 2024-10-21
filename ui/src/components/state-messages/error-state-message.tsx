@@ -17,7 +17,7 @@ export function ErrorStateMessage({ onRetry }: ErrorStateMessageProps) {
         className="rounded-md bg-pk-type-ghost p-2 font-bold text-pk-gray-white hover:opacity-60"
         onClick={onRetry}
       >
-        Keep trying again
+        Try again
       </button>
     </div>
   )

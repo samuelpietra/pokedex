@@ -12,7 +12,7 @@ const badgeVariants = cva(
         dragon: 'bg-pk-type-dragon',
         electric: 'bg-pk-type-electric',
         fairy: 'bg-pk-type-fairy',
-        fightning: 'bg-pk-type-fightning',
+        fighting: 'bg-pk-type-fighting',
         fire: 'bg-pk-type-fire',
         flying: 'bg-pk-type-flying',
         ghost: 'bg-pk-type-ghost',
@@ -25,11 +25,11 @@ const badgeVariants = cva(
         rock: 'bg-pk-type-rock',
         steel: 'bg-pk-type-steel',
         water: 'bg-pk-type-water',
-        unkown: 'bg-pk-gray-medium',
+        unknown: 'bg-pk-gray-medium',
       },
     },
     defaultVariants: {
-      variant: 'unkown',
+      variant: 'unknown',
     },
   },
 )

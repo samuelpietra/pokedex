@@ -1,31 +1,14 @@
-'use client'
-
-import { TrendingUp } from 'lucide-react'
 import { PolarAngleAxis, PolarGrid, Radar, RadarChart } from 'recharts'
 
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardFooter,
-  CardHeader,
-  CardTitle,
-} from '../../components/ui/card'
+import { Pokemon } from '../../common/classes/Pokemon/Pokemon'
+import { PokemonStatName, PokemonTypeName } from '../../common/types/pokemon'
 import {
   ChartConfig,
   ChartContainer,
   ChartTooltip,
   ChartTooltipContent,
 } from '../../components/ui/chart'
-
-const chartData = [
-  { attribute: 'HP', points: 186 },
-  { attribute: 'ATK', points: 305 },
-  { attribute: 'DEF', points: 237 },
-  { attribute: 'SATK', points: 73 },
-  { attribute: 'SDEF', points: 209 },
-  { attribute: 'SPD', points: 214 },
-]
+import { getChartData } from './common'
 
 const chartConfig = {
   desktop: {
@@ -34,7 +17,17 @@ const chartConfig = {
   },
 } satisfies ChartConfig
 
-export function PokemonStatsRadarChart() {
+interface PokemonStatsRadarChartProps {
+  primaryType: PokemonTypeName
+  stats: Pokemon['stats']
+}
+
+export function PokemonStatsRadarChart({
+  primaryType,
+  stats,
+}: PokemonStatsRadarChartProps) {
+  const chartData = getChartData(stats)
+
   return (
     <ChartContainer
       config={chartConfig}
@@ -49,7 +42,7 @@ export function PokemonStatsRadarChart() {
         <PolarGrid strokeWidth={2} />
         <Radar
           dataKey="points"
-          fill="hsl(var(--pk-type-grass))"
+          fill={`hsl(var(--pk-type-${primaryType}))`}
           fillOpacity={0.75}
         />
       </RadarChart>
